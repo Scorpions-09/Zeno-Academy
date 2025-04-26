@@ -42,7 +42,6 @@ const nextConfig = {
     largePageDataBytes: 128 * 1000 * 1000, // 增加到128MB
     // 禁用 Worker Threads 以避免 DataCloneError
     workerThreads: false,
-    isrFlushToDisk: false,
   },
   webpack: (config, { isServer, dev }) => {
     // 告诉Webpack不要检查文件大小限制
@@ -189,9 +188,6 @@ const nextConfig = {
       
       // 启用模块压缩
       config.optimization.minimize = true;
-      
-      // 禁用模块合并以减小文件大小
-      config.optimization.concatenateModules = false;
       
       // 调整优化设置
       config.optimization.usedExports = true;
