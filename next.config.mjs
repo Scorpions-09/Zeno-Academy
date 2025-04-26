@@ -1,6 +1,5 @@
 import { createRequire } from 'module';
 const require = createRequire(import.meta.url);
-import { IgnorePlugin } from 'webpack';
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
@@ -136,9 +135,7 @@ const nextConfig = {
             chunks: 'all',
           },
           lucide: {
-            name(module) {
-              return 'lucide';
-            },
+            name: 'lucide',
             test: /[\\/]node_modules[\\/]lucide-react[\\/]/,
             priority: 40,
             chunks: 'all',
@@ -213,14 +210,6 @@ const nextConfig = {
       // 调整优化设置
       config.optimization.usedExports = true;
       config.optimization.providedExports = true;
-      
-      // 忽略moment.js本地化文件
-      config.plugins.push(
-        new IgnorePlugin({
-          resourceRegExp: /^\.\/locale$/,
-          contextRegExp: /moment$/,
-        })
-      );
     }
     
     return config;
