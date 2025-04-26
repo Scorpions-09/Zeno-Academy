@@ -9,8 +9,6 @@ const nextConfig = {
   typescript: {
     ignoreBuildErrors: true,
   },
-  // 启用SWC压缩以减小包体积
-  swcMinify: true,
   // 生产环境下压缩CSS
   compiler: {
     removeConsole: process.env.NODE_ENV === 'production',
@@ -27,10 +25,6 @@ const nextConfig = {
     pagesBufferLength: 2,
   },
   experimental: {
-    // 启用tiny构建模式，帮助解决大型应用的构建问题
-    buildTiny: true,
-    // 强制不支持动态导入的模块拆分到单独的chunk
-    tinyEntryPoints: true,
     // 禁用不必要的处理以加快构建
     serverMinification: true,
     // 减少不必要的数据收集
@@ -46,17 +40,9 @@ const nextConfig = {
     ],
     // 允许构建更大的页面数据（关键设置）
     largePageDataBytes: 128 * 1000 * 1000, // 增加到128MB
-    // 进一步优化构建，忽略更多错误
-    skipMiddlewareUrlNormalize: true,
-    skipTrailingSlashRedirect: true,
-    workerThreads: true,
+    // 禁用 Worker Threads 以避免 DataCloneError
+    workerThreads: false,
     isrFlushToDisk: false,
-    instrumentationHook: false,
-    turbotrace: {
-      logLevel: 'error',
-      logAll: false,
-      contextDirectory: [],
-    },
   },
   webpack: (config, { isServer, dev }) => {
     // 告诉Webpack不要检查文件大小限制
@@ -220,8 +206,6 @@ const nextConfig = {
   output: 'standalone',
   // 不生成源映射可以减小输出的大小
   productionBrowserSourceMaps: false,
-  // 关键！设置为true以忽略构建错误
-  ignoreBuildErrors: true,
 }
 
 export default nextConfig
