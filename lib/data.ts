@@ -78,19 +78,19 @@ export interface FacultyMember {
 export const facultyData: FacultyMember[] = [
   {
     id: "1",
-    name: "Dr. Aibek Karimov",
-    title: "Dean of Computer Science",
-    department: "Computer Science",
-    bio: "Dr. Karimov has over 15 years of experience in computer science research and education. He specializes in artificial intelligence and machine learning, with a focus on natural language processing. Before joining Zeno Academy, he worked at leading tech companies and research institutions in Europe and the United States.",
-    image: "/news-default1.svg?height=300&width=300",
-  },
-  {
-    id: "2",
     name: "Professor Gulnara Ismailova",
     title: "Chair of International Relations",
     department: "Political Science",
     bio: "Professor Ismailova is an expert in international relations with a focus on Central Asian geopolitics. She has published numerous articles and books on regional security, economic cooperation, and diplomatic relations. She regularly consults for international organizations and government agencies on policy matters.",
     image: "/news-default2.svg?height=300&width=300",
+  },
+  {
+    id: "2",
+    name: "Dr. Aibek Karimov",
+    title: "Dean of Computer Science",
+    department: "Computer Science",
+    bio: "Dr. Karimov has over 15 years of experience in computer science research and education. He specializes in artificial intelligence and machine learning, with a focus on natural language processing. Before joining Zeno Academy, he worked at leading tech companies and research institutions in Europe and the United States.",
+    image: "/news-default1.svg?height=300&width=300",
   },
   {
     id: "3",
