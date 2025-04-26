@@ -1,5 +1,6 @@
 import { createRequire } from 'module';
 const require = createRequire(import.meta.url);
+import { IgnorePlugin } from 'webpack';
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
@@ -215,7 +216,7 @@ const nextConfig = {
       
       // 忽略moment.js本地化文件
       config.plugins.push(
-        new require('webpack').IgnorePlugin({
+        new IgnorePlugin({
           resourceRegExp: /^\.\/locale$/,
           contextRegExp: /moment$/,
         })
