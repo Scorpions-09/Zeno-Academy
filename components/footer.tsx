@@ -63,8 +63,8 @@ export function Footer() {
           <div className="space-y-3">
             <h3 className="text-sm font-bold">Contact</h3>
             <address className="not-italic text-sm text-muted-foreground">
-              <p>7/6 Aaly Tokombaev Street </p>
-              <p>Bishkek, Kyrgyzstan, 720060</p>
+              <p>58 Lowland Road</p>
+              <p>Singapore 547453</p>
               <p className="mt-2">Email: admin@zeno.edu.kg</p>
               <p>Phone: +996 (312) 49-07409</p>
             </address>
