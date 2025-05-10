@@ -51,6 +51,7 @@ export default function ApplyPage() {
       } else if (req.toLowerCase().includes('date') || req.toLowerCase().includes('dob')) {
         fieldType = 'date'
         placeholder = ''
+        label = `${label} (MM/DD/YYYY)`
       } else if (req.toLowerCase().includes('gpa')) {
         fieldType = 'number'
         placeholder = 'Enter your GPA'
@@ -58,7 +59,20 @@ export default function ApplyPage() {
         return (
           <div key={fieldId} className="space-y-2">
             <Label htmlFor={fieldId}>{label}</Label>
-            <Textarea id={fieldId} placeholder={`Write your ${label.toLowerCase()}`} required />
+            <Textarea id={fieldId} placeholder={`Write your ${label.toLowerCase()}`} required
+              onInvalid={(e) => {
+                const target = e.target as HTMLTextAreaElement;
+                if (target.validity.valueMissing) {
+                  target.setCustomValidity('Please fill out this field.');
+                } else {
+                  target.setCustomValidity('');
+                }
+              }}
+              onInput={(e) => {
+                const target = e.target as HTMLTextAreaElement;
+                target.setCustomValidity('');
+              }}
+            />
           </div>
         )
       } else if (req.toLowerCase().includes('recommendation')) {
@@ -79,7 +93,20 @@ export default function ApplyPage() {
         return (
           <div key={fieldId} className="space-y-2">
             <Label htmlFor={fieldId}>{label}</Label>
-            <Input id={fieldId} type={fieldType} required />
+            <Input id={fieldId} type={fieldType} required
+              onInvalid={(e) => {
+                const target = e.target as HTMLInputElement;
+                if (target.validity.valueMissing) {
+                  target.setCustomValidity('Please select a file.');
+                } else {
+                  target.setCustomValidity('');
+                }
+              }}
+              onInput={(e) => {
+                const target = e.target as HTMLInputElement;
+                target.setCustomValidity('');
+              }}
+            />
           </div>
         )
       }
@@ -87,7 +114,22 @@ export default function ApplyPage() {
       return (
         <div key={fieldId} className="space-y-2">
           <Label htmlFor={fieldId}>{label}</Label>
-          <Input id={fieldId} type={fieldType} placeholder={placeholder} required />
+          <Input id={fieldId} type={fieldType} placeholder={placeholder} required
+            onInvalid={(e) => {
+              const target = e.target as HTMLInputElement;
+              if (target.validity.valueMissing) {
+                target.setCustomValidity('Please fill out this field.');
+              } else if (target.type === 'email' && target.validity.typeMismatch) {
+                target.setCustomValidity(`Please include an "@" in the email address. '${target.value}' is missing an "@".`);
+              } else {
+                target.setCustomValidity('');
+              }
+            }}
+            onInput={(e) => {
+              const target = e.target as HTMLInputElement;
+              target.setCustomValidity('');
+            }}
+          />
         </div>
       )
     })
@@ -121,20 +163,71 @@ export default function ApplyPage() {
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <div className="space-y-2">
                     <Label htmlFor={`fullName-${program.program.toLowerCase().split(' ')[0]}`}>Full Name</Label>
-                    <Input id={`fullName-${program.program.toLowerCase().split(' ')[0]}`} placeholder="Enter your full name" required />
+                    <Input id={`fullName-${program.program.toLowerCase().split(' ')[0]}`} placeholder="Enter your full name" required
+                      onInvalid={(e) => {
+                        const target = e.target as HTMLInputElement;
+                        if (target.validity.valueMissing) {
+                          target.setCustomValidity('Please fill out this field.');
+                        } else {
+                          target.setCustomValidity('');
+                        }
+                      }}
+                      onInput={(e) => {
+                        const target = e.target as HTMLInputElement;
+                        target.setCustomValidity('');
+                      }}
+                    />
                   </div>
                   <div className="space-y-2">
                     <Label htmlFor={`email-${program.program.toLowerCase().split(' ')[0]}`}>Email Address</Label>
-                    <Input id={`email-${program.program.toLowerCase().split(' ')[0]}`} type="email" placeholder="Enter your email address" required />
+                    <Input id={`email-${program.program.toLowerCase().split(' ')[0]}`} type="email" placeholder="Enter your email address" required
+                      onInvalid={(e) => {
+                        const target = e.target as HTMLInputElement;
+                        if (target.validity.valueMissing) {
+                          target.setCustomValidity('Please fill out this field.');
+                        } else if (target.validity.typeMismatch) {
+                          target.setCustomValidity(`Please include an "@" in the email address. '${target.value}' is missing an "@".`);
+                        } else {
+                          target.setCustomValidity('');
+                        }
+                      }}
+                      onInput={(e) => {
+                        const target = e.target as HTMLInputElement;
+                        target.setCustomValidity('');
+                      }}
+                    />
                   </div>
                   <div className="space-y-2">
                     <Label htmlFor={`phone-${program.program.toLowerCase().split(' ')[0]}`}>Phone Number</Label>
                     <Input id={`phone-${program.program.toLowerCase().split(' ')[0]}`} type="tel" placeholder="Enter your phone number" />
                   </div>
                   <div className="space-y-2">
-                    <Label htmlFor={`dob-${program.program.toLowerCase().split(' ')[0]}`}>Date of Birth</Label>
-                    <Input id={`dob-${program.program.toLowerCase().split(' ')[0]}`} type="date" required />
-                  </div>
+  <Label htmlFor={`dob-${program.program.toLowerCase().split(' ')[0]}`}>
+    Date of Birth (MM/DD/YYYY)
+  </Label>
+  <Input
+    id={`dob-${program.program.toLowerCase().split(' ')[0]}`}
+    type="text"
+    required
+    placeholder="MM/DD/YYYY"
+    pattern="^(0[1-9]|1[0-2])/(0[1-9]|[12][0-9]|3[01])/\d{4}$"
+    onInvalid={(e) => {
+      const target = e.target as HTMLInputElement;
+      if (target.validity.valueMissing) {
+        target.setCustomValidity('Please fill out this field.');
+      } else if (target.validity.patternMismatch) {
+        target.setCustomValidity('Please enter a valid date in MM/DD/YYYY format.');
+      } else {
+        target.setCustomValidity('');
+      }
+    }}
+    onInput={(e) => {
+      const target = e.target as HTMLInputElement;
+      target.setCustomValidity('');
+    }}
+  />
+</div>
+
                   <div className="space-y-2">
                     <Label>Gender</Label>
                     <RadioGroup defaultValue="other" className="flex space-x-4">
@@ -154,7 +247,20 @@ export default function ApplyPage() {
                   </div>
                   <div className="space-y-2">
                     <Label htmlFor={`address-${program.program.toLowerCase().split(' ')[0]}`}>Address</Label>
-                    <Textarea id={`address-${program.program.toLowerCase().split(' ')[0]}`} placeholder="Enter your full address" required />
+                    <Textarea id={`address-${program.program.toLowerCase().split(' ')[0]}`} placeholder="Enter your full address" required
+                      onInvalid={(e) => {
+                        const target = e.target as HTMLTextAreaElement;
+                        if (target.validity.valueMissing) {
+                          target.setCustomValidity('Please fill out this field.');
+                        } else {
+                          target.setCustomValidity('');
+                        }
+                      }}
+                      onInput={(e) => {
+                        const target = e.target as HTMLTextAreaElement;
+                        target.setCustomValidity('');
+                      }}
+                    />
                   </div>
                   
                   {/* Dynamically generated fields based on requirements */}

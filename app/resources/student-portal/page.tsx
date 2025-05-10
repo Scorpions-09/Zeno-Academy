@@ -55,6 +55,20 @@ export default function StudentPortalPage() {
                 required 
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
+                onInvalid={(e) => {
+                  const target = e.target as HTMLInputElement;
+                  if (target.validity.valueMissing) {
+                    target.setCustomValidity('Please fill out this field.');
+                  } else if (target.validity.typeMismatch) {
+                    target.setCustomValidity(`Please include an "@" in the email address. '${target.value}' is missing an "@".`);
+                  } else {
+                    target.setCustomValidity('');
+                  }
+                }}
+                onInput={(e) => {
+                  const target = e.target as HTMLInputElement;
+                  target.setCustomValidity('');
+                }}
               />
             </div>
             <div className="space-y-2">
@@ -66,6 +80,18 @@ export default function StudentPortalPage() {
                 required 
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
+                onInvalid={(e) => {
+                  const target = e.target as HTMLInputElement;
+                  if (target.validity.valueMissing) {
+                    target.setCustomValidity('Please fill out this field.');
+                  } else {
+                    target.setCustomValidity(''); // Clear for other cases or if valid (e.g. length)
+                  }
+                }}
+                onInput={(e) => {
+                  const target = e.target as HTMLInputElement;
+                  target.setCustomValidity('');
+                }}
               />
             </div>
             <Button type="submit" className="w-full">Login</Button>
