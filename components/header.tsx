@@ -51,9 +51,11 @@ export function Header() {
           <Link href="/about" className="text-sm font-medium transition-colors hover:text-primary">
             {translations[language].nav.about}
           </Link>
-          <Button variant="default" size="sm">
-            {translations[language].nav.applyNow}
-          </Button>
+          <Link href="/admissions/apply">
+            <Button variant="default" size="sm">
+              {translations[language].nav.applyNow}
+            </Button>
+          </Link>
           <Button
             variant="ghost"
             size="icon"
@@ -108,9 +110,11 @@ export function Header() {
             >
               {translations[language].nav.about} {/* Use translation */}
             </Link>
-            <Button variant="default" size="sm" className="w-full">
-              {translations[language].nav.applyNow} {/* Use translation */}
-            </Button>
+            <Link href="/admissions/apply" onClick={() => setIsMenuOpen(false)}>
+              <Button variant="default" size="sm" className="w-full">
+                {translations[language].nav.applyNow} {/* Use translation */}
+              </Button>
+            </Link>
             {/* Add Language Toggle Button for Mobile */}
             <Button
               variant="outline"
