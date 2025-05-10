@@ -1,4 +1,5 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { admissionRequirements } from "@/lib/data"
@@ -207,12 +208,16 @@ export default function AdmissionsPage() {
             the process.
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
-            <Button size="lg" variant="secondary">
-              Apply Now
-            </Button>
-            <Button size="lg" variant="outline" className="bg-transparent">
-              Contact Admissions
-            </Button>
+            <Link href="/admissions/apply">
+              <Button size="lg" variant="secondary">
+                Apply Now
+              </Button>
+            </Link>
+            <a href="mailto:admin@zeno.edu.kg">
+              <Button size="lg" variant="outline" className="bg-transparent">
+                Contact Admissions
+              </Button>
+            </a>
           </div>
         </section>
       </div>

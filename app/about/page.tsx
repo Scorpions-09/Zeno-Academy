@@ -123,9 +123,9 @@ export default function AboutPage() {
             />
             <div>
               <p className="mb-4">
-                Nestled in the heart of Bishkek, the capital city of Kyrgyzstan, our campus spans over 50 acres of
-                beautifully landscaped grounds. The campus features a blend of historic and modern architecture,
+                Nestled in sunny California, USA, our campus offers a vibrant learning environment. The campus features a blend of historic and modern architecture,
                 creating an environment that honors our traditions while embracing innovation.
+                Our address is 3550 Camino Del Rio N, Suite 208, San Diego, CA 92108, USA.
               </p>
               <p className="mb-4">
                 Our facilities include state-of-the-art classrooms, research laboratories, a comprehensive library with
@@ -133,9 +133,9 @@ export default function AboutPage() {
                 designed to provide a conducive environment for learning, research, and personal growth.
               </p>
               <p>
-                The campus is easily accessible by public transportation and is within walking distance of many cultural
+                The campus is easily accessible and is within a short distance of many cultural
                 attractions, restaurants, and shops, allowing students to fully experience the vibrant culture of
-                Bishkek.
+                San Diego.
               </p>
             </div>
           </div>

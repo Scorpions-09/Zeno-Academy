@@ -39,22 +39,22 @@ export function Footer() {
             <h3 className="text-sm font-bold">Resources</h3>
             <ul className="space-y-2">
               <li>
-                <Link href="#" className="text-sm text-muted-foreground hover:text-foreground">
+                <Link href="/resources/academic-calendar" className="text-sm text-muted-foreground hover:text-foreground">
                   Academic Calendar
                 </Link>
               </li>
               <li>
-                <Link href="#" className="text-sm text-muted-foreground hover:text-foreground">
+                <Link href="/resources/library" className="text-sm text-muted-foreground hover:text-foreground">
                   Library
                 </Link>
               </li>
               <li>
-                <Link href="#" className="text-sm text-muted-foreground hover:text-foreground">
+                <Link href="/resources/student-portal" className="text-sm text-muted-foreground hover:text-foreground">
                   Student Portal
                 </Link>
               </li>
               <li>
-                <Link href="#" className="text-sm text-muted-foreground hover:text-foreground">
+                <Link href="/about" className="text-sm text-muted-foreground hover:text-foreground">
                   Faculty Directory
                 </Link>
               </li>
@@ -63,10 +63,10 @@ export function Footer() {
           <div className="space-y-3">
             <h3 className="text-sm font-bold">Contact</h3>
             <address className="not-italic text-sm text-muted-foreground">
-              <p>58 Lowland Road</p>
-              <p>Singapore 547453</p>
+              <p>3550 Camino Del Rio N, Suite 208</p>
+              <p>San Diego, CA 92108, USA</p>
               <p className="mt-2">Email: admin@zeno.edu.kg</p>
-              <p>Phone: +996 (312) 49-07409</p>
+              <p>Phone: +1 (217) 858-1258</p>
             </address>
           </div>
         </div>
