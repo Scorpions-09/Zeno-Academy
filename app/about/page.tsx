@@ -123,9 +123,9 @@ export default function AboutPage() {
             />
             <div>
               <p className="mb-4">
-                Nestled in sunny California, USA, our campus offers a vibrant learning environment. The campus features a blend of historic and modern architecture,
-                creating an environment that honors our traditions while embracing innovation.
-                Our address is 3550 Camino Del Rio N, Suite 208, San Diego, CA 92108, USA.
+                Nestled in the picturesque Issyk-Kul Region of Kyrgyzstan, our campus offers a vibrant learning environment. 
+The campus features a blend of historic and modern architecture, creating an environment that honors our traditions while embracing innovation. 
+Our address is 12 Ala-Too Street, Building 3, Room 45, Ananyevo, Issyk-Kul Region 722101, Kyrgyzstan.
               </p>
               <p className="mb-4">
                 Our facilities include state-of-the-art classrooms, research laboratories, a comprehensive library with
