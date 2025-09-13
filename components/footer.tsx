@@ -63,9 +63,9 @@ export function Footer() {
           <div className="space-y-3">
             <h3 className="text-sm font-bold">Contact</h3>
             <address className="not-italic text-sm text-muted-foreground">
-              <p>3550 Camino Del Rio N, Suite 208</p>
-              <p>San Diego, CA 92108, USA</p>
-              <p className="mt-2">Email: admin@zeno.edu.kg</p>
+              <p>12 Ala-Too Street, Building 3, Room 45</p>
+              <p>Ananyevo, Issyk-Kul Region 722101, Kyrgyzstan</p>
+              <p className="mt-2">Email: info@zeno.edu.kg</p>
               <p>Phone: +1 (217) 858-1258</p>
             </address>
           </div>
